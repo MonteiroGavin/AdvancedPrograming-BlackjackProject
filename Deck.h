@@ -5,4 +5,17 @@
 #ifndef M1OEP_GTMONTEI_DECK_H
 #define M1OEP_GTMONTEI_DECK_H
 
+class Deck {
+    public:
+        // Default Constructor
+        Deck();
+
+
+        ~Deck();
+
+        void shuffle();
+        <string> drawCard();
+
+};
+
 #endif //M1OEP_GTMONTEI_DECK_H

@@ -8,4 +8,6 @@ include_directories(.)
 add_executable(M1OEP_gtmontei
         Deck.cpp
         Deck.h
-        main.cpp)
+        main.cpp
+        Player.h
+        Player.cpp)
