@@ -14,4 +14,6 @@ add_executable(M1OEP_gtmontei
         Dealer.cpp
         Dealer.h
         Card.h
-        Card.cpp)
+        Card.cpp
+        Blackjack.cpp
+        Blackjack.h)

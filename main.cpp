@@ -4,12 +4,15 @@
 
 #include <iostream>
 #include "Deck.h"
+#include "Card.h"
 using namespace std;
 
 int main() {
     cout << "Welcome to blackjack!" << endl;
     cout << "Please enter your player name: ";
-    string player1 = getInputFromUser();
+    //string player1 = getInputFromUser();
+    Deck deck;
+    deck.shuffle();
 }
 
 string getInputFromUser() {
