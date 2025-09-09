@@ -11,7 +11,7 @@ Deck::Deck() {
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 13; j++) {
             deck[i * 13 + j].setSuit(suits[i]);
-            deck[i * 13 + j].setRank(ranks[i]);
+            deck[i * 13 + j].setRank(ranks[j]);
         }
     }
 
