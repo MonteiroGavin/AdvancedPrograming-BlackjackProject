@@ -5,6 +5,9 @@
 #ifndef M1OEP_GTMONTEI_DECK_H
 #define M1OEP_GTMONTEI_DECK_H
 
+#include <iostream>
+using namespace std;
+
 class Deck {
     public:
         // Default Constructor
@@ -14,7 +17,7 @@ class Deck {
         ~Deck();
 
         void shuffle();
-        <string> drawCard();
+        string drawCard();
 
 };
 

@@ -10,4 +10,8 @@ add_executable(M1OEP_gtmontei
         Deck.h
         main.cpp
         Player.h
-        Player.cpp)
+        Player.cpp
+        Dealer.cpp
+        Dealer.h
+        Card.h
+        Card.cpp)

@@ -9,10 +9,10 @@ using namespace std;
 int main() {
     cout << "Welcome to blackjack!" << endl;
     cout << "Please enter your player name: ";
-    string player1 = getWordFromUser();
+    string player1 = getInputFromUser();
 }
 
-string getWordFromUser() {
+string getInputFromUser() {
     string input;
     while (true) {
         // Gets whole line of input
