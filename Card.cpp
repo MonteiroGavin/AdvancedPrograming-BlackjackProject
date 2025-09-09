@@ -6,9 +6,18 @@
 
 
 Card::Card() {
-
+    suit = "hearts";
+    rank = "Ace";
 }
 
 Card::Card(string suit, string rank) {
-
+    this->suit = suit;
+    this->rank = rank;
 }
+
+void Card::setSuit(string suit) { this->suit = suit; }
+void Card::setRank(string rank) { this->rank = rank; }
+
+string Card::getSuit() { return suit; }
+string Card::getRank() { return rank; }
+

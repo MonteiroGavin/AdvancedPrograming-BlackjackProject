@@ -13,7 +13,6 @@ class Deck {
         // Default Constructor
         Deck();
 
-
         ~Deck();
 
         void shuffle();
