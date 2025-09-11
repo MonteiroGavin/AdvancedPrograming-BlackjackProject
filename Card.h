@@ -35,7 +35,7 @@ public:
     void setSuit(string suit);
 
     /*
-    * Default Constructor
+    * Sets card Rank
     * Requires: String rank
     * Modifies: Rank
     * Effects: Sets card rank to the given string
@@ -59,7 +59,7 @@ public:
     string getRank() const;
 
     /*
-    * Print Card
+    * Prints Card
     * Requires: Nothing
     * Modifies: Nothing
     * Effects: Prints the card
