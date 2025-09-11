@@ -24,6 +24,7 @@ Blackjack::Blackjack(Player player, Dealer dealer) {
     player.setHand(playerDeal1, playerDeal2);
     dealer.setHand(dealerDeal1, dealerDeal2);
 
+    // Checks if dealer has a blackjack
     if (dealer.checkBlackjack(dealer.getHand())) {
         cout << "The dealer has blackjack, you lose" << endl;
         return;
@@ -32,6 +33,9 @@ Blackjack::Blackjack(Player player, Dealer dealer) {
 
 }
 
-Blackjack::checkBlackjack(vector<Card> hand) {
-
+Card Blackjack::checkBlackjack(vector<Card> hand) {
+    int total = 0;
+    for (int i = 0; i < hand.size(); i++) {
+        hand[i].getRank() + total;
+    }
 }

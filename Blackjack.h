@@ -18,7 +18,7 @@ class Blackjack {
 public:
     Blackjack(Player player1, Dealer dealer);
 
-    Card checkBlackJack();
+    Card checkBlackJack(vector<Card> hand);
     Card playerTurn(vector<Card> hand);
     Card dealerTurn(vector<Card> hand);
 

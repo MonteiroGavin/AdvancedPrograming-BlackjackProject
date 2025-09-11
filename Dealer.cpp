@@ -8,7 +8,6 @@
 Dealer::Dealer() {
 }
 
-
 void Dealer::setHand(Card card1, Card card2) {
     // In case anything is in the hand, clears it
     hand.clear();
