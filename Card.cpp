@@ -4,6 +4,7 @@
 
 #include "Card.h"
 
+/************* Card class ******************/
 
 Card::Card() {
     suit = "hearts";

@@ -18,7 +18,6 @@ class Blackjack {
 public:
     Blackjack(Player player1, Dealer dealer);
 
-
 };
 
 #endif //M1OEP_GTMONTEI_BLACKJACK_H

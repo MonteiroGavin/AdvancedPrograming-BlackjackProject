@@ -8,6 +8,8 @@
 #include "Card.h"
 #include "Deck.h"
 
+/************* Blackjack class ******************/
+
 Blackjack::Blackjack(Player player, Dealer dealer) {
     // Initialize a deck of cards
     Deck deck = Deck();
