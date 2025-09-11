@@ -10,9 +10,10 @@ using namespace std;
 int main() {
     cout << "Welcome to blackjack!" << endl;
     cout << "Please enter your player name: ";
-    //string player1 = getInputFromUser();
-    Deck deck;
-    deck.shuffle();
+    string player1;
+    //playerName = getInputfromUser();
+    //player1.setName(playerName);
+
 }
 
 string getInputFromUser() {
@@ -38,7 +39,7 @@ string getInputFromUser() {
 
             // Confirms if has more than one word
             if (containsSpace) {
-                cout << "Invalid input. Enter your player name: ";
+                cout << "Invalid input. Enter your player name in one word: ";
             }
 
             else {

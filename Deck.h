@@ -13,10 +13,10 @@ class Deck {
 public:
     // Default Constructor
     Deck();
-    ~Deck();
 
     void shuffle(Deck& Deck);
     Card drawCard();
+
 private:
     Card deck[52];
     const string suits[4] = { "clubs", "spades", "diamonds", "hearts" };

@@ -21,3 +21,7 @@ void Card::setRank(string rank) { this->rank = rank; }
 string Card::getSuit() { return suit; }
 string Card::getRank() { return rank; }
 
+void Card::printCard() {
+    cout << suit << " " << rank;
+}
+

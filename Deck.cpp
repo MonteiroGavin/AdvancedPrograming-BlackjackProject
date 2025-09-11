@@ -8,17 +8,17 @@
 /************* Deck class ******************/
 
 Deck::Deck() {
+    // For every suit (clubs, spades, diamonds, hearts)
     for (int i = 0; i < 4; i++) {
+        // For every card rank
         for (int j = 0; j < 13; j++) {
+            // Set suit to current suit
             deck[i * 13 + j].setSuit(suits[i]);
+
+
             deck[i * 13 + j].setRank(ranks[j]);
         }
     }
-
-}
-
-Deck::~Deck() {
-
 }
 
 void shuffle(Deck& deck) {

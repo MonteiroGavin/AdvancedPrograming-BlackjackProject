@@ -17,6 +17,9 @@ public:
     void setRank(string rank);
     string getSuit();
     string getRank();
+
+    void printCard();
+
 private:
     string suit;
     string rank;
