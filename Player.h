@@ -6,6 +6,7 @@
 #define M1OEP_GTMONTEI_PLAYER_H
 
 #include <iostream>
+#include <vector>
 #include "Card.h"
 using namespace std;
 
@@ -17,9 +18,9 @@ class Player {
     void setHand(Card card1, Card card2);
 
     string getName();
-    Card getHand();
+    vector<Card> getHand();
 
-    Card addCard(Card card);
+    void addCard(Card card);
 
     private:
     string playername;
