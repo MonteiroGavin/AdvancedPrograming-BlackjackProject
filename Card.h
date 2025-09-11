@@ -48,7 +48,7 @@ public:
     * Modifies: Nothing
     * Effects: Returns suit value
     */
-    string getSuit();
+    string getSuit() const;
 
     /*
     * Gets the card rank
@@ -56,7 +56,7 @@ public:
     * Modifies: Nothing
     * Effects: Returns rank value
     */
-    string getRank();
+    string getRank() const;
 
     /*
     * Print Card
@@ -64,7 +64,7 @@ public:
     * Modifies: Nothing
     * Effects: Prints the card
     */
-    void printCard();
+    void printCard() const;
 
 private:
     string suit;

@@ -6,6 +6,7 @@
 #define M1OEP_GTMONTEI_DECK_H
 
 #include <iostream>
+#include <vector>
 #include "Card.h"
 using namespace std;
 
@@ -14,13 +15,13 @@ public:
     // Default Constructor
     Deck();
 
-    void shuffle(Deck& Deck);
+    void shuffle();
     Card drawCard();
 
 private:
-    Card deck[52];
+    vector<Card> deck;
     const string suits[4] = { "clubs", "spades", "diamonds", "hearts" };
-    const string ranks[13] = { "Ace", "3", "4", "5", "6", "7", "8", "9",
+    const string ranks[13] = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9",
                         "10", "Jack", "Queen", "King" };
 
 };
