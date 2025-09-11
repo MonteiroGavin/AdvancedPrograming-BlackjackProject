@@ -5,18 +5,33 @@
 #include <iostream>
 #include "Deck.h"
 #include "Card.h"
+#include "Player.h"
+#include "Dealer.h"
+#include "BlackJack.h"
 using namespace std;
 
 int main() {
+    string getNameFromUser();
+
+    Player player1;
+    Dealer dealer;
+    bool endGame = false;
+
     cout << "Welcome to blackjack!" << endl;
     cout << "Please enter your player name: ";
-    string player1;
-    //playerName = getInputfromUser();
-    //player1.setName(playerName);
+    //player1.setName(getNameFromUser());
+
+    cout << endl << "Hello " << player1.getName() << " let's begin the game" << endl;
+    Blackjack blackjack;
+    while (!endGame) {
+        blackjack.Blackjack(player1, dealer);
+        cout << "To continue enter 1, to quit enter 0: ";
+    }
+
 
 }
 
-string getInputFromUser() {
+string getNameFromUser() {
     string input;
     while (true) {
         // Gets whole line of input
@@ -27,24 +42,7 @@ string getInputFromUser() {
             cout << "No input. Enter your player name: ";
         }
         else {
-            // To check if the line has any spaces
-            bool containsSpace = false;
-
-            // Loops to see if there is a space
-            for (int i = 0; i < input.length(); i++) {
-                if (isspace(input[i])) {
-                    containsSpace = true;
-                }
-            }
-
-            // Confirms if has more than one word
-            if (containsSpace) {
-                cout << "Invalid input. Enter your player name in one word: ";
-            }
-
-            else {
-                return input;
-            }
+            return input;
         }
     }
 }

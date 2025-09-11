@@ -5,4 +5,22 @@
 #ifndef M1OEP_GTMONTEI_DEALER_H
 #define M1OEP_GTMONTEI_DEALER_H
 
+#include <iostream>
+#include "Card.h"
+using namespace std;
+
+class Dealer {
+public:
+    Dealer();
+
+    void setHand(Card card1, Card card2);
+    Card getHand();
+
+    Card addCard(Card card);
+
+private:
+     vector<Card> hand;
+
+};
+
 #endif //M1OEP_GTMONTEI_DEALER_H
