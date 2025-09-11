@@ -14,10 +14,24 @@ Blackjack::Blackjack(Player player, Dealer dealer) {
     // Initialize a deck of cards
     Deck deck = Deck();
     // Shuffle deck
-    deck.shuffle(deck);
+    deck.shuffle();
+
+    //Deal cards
+    Card playerDeal1 = deck.drawCard();
+    Card dealerDeal1 = deck.drawCard();
+    Card playerDeal2 = deck.drawCard();
+    Card dealerDeal2 = deck.drawCard();
+    player.setHand(playerDeal1, playerDeal2);
+    dealer.setHand(dealerDeal1, dealerDeal2);
+
+    if (dealer.checkBlackjack(dealer.getHand())) {
+        cout << "The dealer has blackjack, you lose" << endl;
+        return;
+    }
 
 
+}
 
-
+Blackjack::checkBlackjack(vector<Card> hand) {
 
 }

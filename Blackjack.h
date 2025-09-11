@@ -18,6 +18,18 @@ class Blackjack {
 public:
     Blackjack(Player player1, Dealer dealer);
 
+    Card checkBlackJack();
+    Card playerTurn(vector<Card> hand);
+    Card dealerTurn(vector<Card> hand);
+
+    private:
+    Deck deck;
+    Player player;
+    Dealer dealer;
+
+    vector<Card> playerHand;
+    vector<Card> dealerHand;
+
 };
 
 #endif //M1OEP_GTMONTEI_BLACKJACK_H
