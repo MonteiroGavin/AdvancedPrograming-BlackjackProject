@@ -10,15 +10,20 @@
 
 /************* Blackjack class ******************/
 
-Blackjack::Blackjack(Player& player, Dealer& dealer) {
+Blackjack::Blackjack(Player& player, Dealer& dealer)
     // Initialize player and dealer
-    this->player = player;
-    this->dealer = dealer;
-}
+    : player(player),
+    dealer(dealer),
+    deck()
+{}
 
-void Blackjack::startRound() {
+void Blackjack::initialDeal() {
     // Shuffle deck
     deck.shuffle();
+
+    // Reset hands
+    dealer.clearHand();
+    player.clearHand();
 
     // Deal cards
     Card playerDeal1 = deck.drawCard();
@@ -39,7 +44,11 @@ void Blackjack::startRound() {
         cout << "You have blackjack, you win!" << endl;
         return;
     }
-
-
 }
+
+
+
+
+
+
 

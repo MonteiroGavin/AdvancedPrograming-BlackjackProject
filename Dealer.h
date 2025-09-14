@@ -17,6 +17,7 @@ public:
     Dealer();
 
     void setHand(Card card1, Card card2);
+    void clearHand();
 
     vector<Card> getHand() const;
 

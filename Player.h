@@ -17,6 +17,8 @@ class Player {
     void setName(const string& name);
     void setHand(Card card1, Card card2);
 
+    void clearHand();
+
     string getName() const;
     vector<Card> getHand() const;
 

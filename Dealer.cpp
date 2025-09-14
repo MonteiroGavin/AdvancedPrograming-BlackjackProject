@@ -20,6 +20,10 @@ void Dealer::setHand(Card card1, Card card2) {
     hand.push_back(card2);
 }
 
+void Dealer::clearHand() {
+    hand.clear();
+}
+
 vector<Card> Dealer::getHand() const{
     return hand;
 }

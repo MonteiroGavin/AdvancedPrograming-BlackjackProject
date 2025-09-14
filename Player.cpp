@@ -23,6 +23,10 @@ void Player::setHand(Card card1, Card card2) {
     hand.push_back(card2);
 }
 
+void Player::clearHand() {
+    hand.clear();
+}
+
 string Player::getName() const {
     return playerName;
 }
