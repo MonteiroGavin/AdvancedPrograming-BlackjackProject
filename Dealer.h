@@ -24,6 +24,7 @@ public:
     void addCard(Card card);
     int getHandValue() const;
     bool hasBlackjack() const;
+    bool bust() const;
 
     void dealerTurn(Deck& deck);
 

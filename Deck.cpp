@@ -13,7 +13,7 @@ Deck::Deck() {
     for (int i = 0; i < 4; i++) {
         Suit suit = static_cast<Suit>(i);
         // For every card rank
-        for (int j = 0; j < 13; j++) {
+        for (int j = 2; j < 14; j++) {
             Rank rank = static_cast<Rank>(j);
             deck.push_back(Card(suit, rank));
         }

@@ -57,6 +57,10 @@ bool Dealer::hasBlackjack() const {
     return getHandValue() == 21;
 }
 
+bool Dealer::bust() const {
+    return getHandValue() >= 21;
+}
+
 void Dealer::dealerTurn(Deck& deck) {
     // Dealer must hit if hand is under 17
     while (getHandValue() < 17) {
@@ -68,7 +72,7 @@ void Dealer::printHand(bool hiddenCard) const {
     cout << "Dealer's hand: ";
     for (int i = 0; i < hand.size(); i++) {
         if (i == 0 && hiddenCard) {
-            cout << "[Hidden card] ";
+            cout << "[Hidden card], ";
         } else {
             cout << hand[i];
         }
@@ -77,5 +81,4 @@ void Dealer::printHand(bool hiddenCard) const {
     if (!hiddenCard) {
         cout << "Total: " << getHandValue();
     }
-    cout << endl;
 }

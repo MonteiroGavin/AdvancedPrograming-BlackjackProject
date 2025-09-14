@@ -64,10 +64,14 @@ bool Player::hasBlackjack() const {
     return getHandValue() == 21;
 }
 
+bool Player::bust() const {
+    return getHandValue() >= 21;
+}
+
 void Player::printHand() const{
     cout << "Your hand: ";
     for (const Card& card : hand) {
         cout << card << " ";
     }
-    cout << "Total: " << getHandValue() << endl;
+    cout << endl << "Your hand total: " << getHandValue() << endl;
 }

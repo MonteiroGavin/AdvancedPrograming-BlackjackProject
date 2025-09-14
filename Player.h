@@ -26,6 +26,7 @@ class Player {
 
     int getHandValue() const;
     bool hasBlackjack() const;
+    bool bust() const;
 
     void printHand() const;
 

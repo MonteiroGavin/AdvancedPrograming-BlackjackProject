@@ -17,6 +17,7 @@ public:
     Blackjack(Player& player1, Dealer& dealer);
 
     void initialDeal();
+    void playerHit();
     void compareHands();
 
     private:

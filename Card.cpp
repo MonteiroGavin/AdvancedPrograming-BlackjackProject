@@ -66,7 +66,7 @@ ostream& operator<<(ostream& os, const Card& card) {
         case Suit::Spades: suitStr = "Spades"; break;
     }
     // Return rank then string
-    return os << rankStr << " of " << suitStr << ", ";
+    return os << rankStr << " of " << suitStr;
 }
 
 

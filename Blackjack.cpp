@@ -46,6 +46,31 @@ void Blackjack::initialDeal() {
     }
 }
 
+void Blackjack::playerHit() {
+    Card newCard = deck.drawCard();
+    player.addCard(newCard);
+    player.printHand();
+}
+
+void Blackjack::compareHands() {
+    cout << endl;
+
+    cout << "Your hand: ";
+    player.printHand();
+    cout << " Your total: " << player.getHandValue() << endl;
+
+    cout << "dealer's hand: ";
+    dealer.printHand(false);
+    cout << " Your total: " << dealer.getHandValue() << endl;
+
+    if (player.getHandValue() > dealer.getHandValue()) {
+        cout << "Player wins!" << endl;
+
+    } else if (player.getHandValue() < dealer.getHandValue()) {
+        cout << "Dealer wins!" << endl;
+    }
+}
+
 
 
 
