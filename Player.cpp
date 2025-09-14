@@ -59,3 +59,11 @@ bool Player::hasBlackjack() const {
     // True if hand has blackjack
     return getHandValue() == 21;
 }
+
+void Player::printHand() const{
+    cout << "Your hand: ";
+    for (const Card& card : hand) {
+        cout << card << " ";
+    }
+    cout << "Total: " << getHandValue() << endl;
+}

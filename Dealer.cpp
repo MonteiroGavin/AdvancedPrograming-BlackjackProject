@@ -8,6 +8,7 @@
 /************* Dealer class ******************/
 
 Dealer::Dealer() {
+    // Empty constructor
 }
 
 void Dealer::setHand(Card card1, Card card2) {
@@ -57,5 +58,20 @@ void Dealer::dealerTurn(Deck& deck) {
     while (getHandValue() < 17) {
         addCard(deck.drawCard());
     }
+}
 
+void Dealer::printHand(bool hiddenCard) const {
+    cout << "Dealer's hand: ";
+    for (int i = 0; i < hand.size(); i++) {
+        if (i == 0 && hiddenCard) {
+            cout << "[Hidden card] ";
+        } else {
+            cout << hand[i];
+        }
+    }
+    cout << endl;
+    if (!hiddenCard) {
+        cout << "Total: " << getHandValue();
+    }
+    cout << endl;
 }

@@ -25,6 +25,8 @@ class Player {
     int getHandValue() const;
     bool hasBlackjack() const;
 
+    void printHand() const;
+
     private:
     string playerName;
     vector<Card> hand;

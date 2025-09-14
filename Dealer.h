@@ -26,8 +26,11 @@ public:
 
     void dealerTurn(Deck& deck);
 
+    void printHand(bool hiddenCard) const;
+
 private:
     vector<Card> hand;
+    bool hiddenCard;
 
 };
 #endif //M1OEP_GTMONTEI_DEALER_H

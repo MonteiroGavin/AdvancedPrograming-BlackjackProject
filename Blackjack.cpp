@@ -30,7 +30,9 @@ Blackjack::Blackjack(Player player, Dealer dealer) {
 
     if (dealer.hasBlackjack()) {
         cout << "the dealer has blackjack, you lose." << endl;
+        return;
     }
+
 
 
 }
