@@ -17,9 +17,7 @@ public:
     Blackjack(Player& player1, Dealer& dealer);
 
     void initialDeal();
-    bool checkBlackJack(const vector<Card>& hand);
-
-
+    void compareHands();
 
     private:
     Deck deck;
