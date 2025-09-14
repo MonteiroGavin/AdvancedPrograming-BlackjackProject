@@ -8,6 +8,11 @@
 #include <iostream>
 using namespace std;
 
+enum class Suit { Clubs, Diamonds, Hearts, Spades };
+enum class Rank { Two=2, Three=3, Four=4, Five=5,
+                Six=6, Seven=7, Eight=8, Nine=9, Ten=10,
+                Jack=11, Queen=12, King=13, Ace=14 };
+
 class Card {
 public:
     /*
@@ -24,23 +29,7 @@ public:
      * Modifies: Suit and rank
      * Effects: Sets card suit and rank
      */
-    Card(string suit,string rank);
-
-    /*
-    * Sets card suit
-    * Requires: String suit
-    * Modifies: Suit
-    * Effects: Sets card suit to the given string
-    */
-    void setSuit(string suit);
-
-    /*
-    * Sets card Rank
-    * Requires: String rank
-    * Modifies: Rank
-    * Effects: Sets card rank to the given string
-    */
-    void setRank(string rank);
+    Card(Suit suit,Rank rank);
 
     /*
     * Gets the card suit
@@ -48,7 +37,7 @@ public:
     * Modifies: Nothing
     * Effects: Returns suit value
     */
-    string getSuit() const;
+    Suit getSuit() const;
 
     /*
     * Gets the card rank
@@ -56,18 +45,17 @@ public:
     * Modifies: Nothing
     * Effects: Returns rank value
     */
-    string getRank() const;
+    Rank getRank() const;
 
-    /*
-    * Prints Card
-    * Requires: Nothing
-    * Modifies: Nothing
-    * Effects: Prints the card
-    */
-    void printCard() const;
+    int getValue() const;
+
+    bool isAce() const;
 
 private:
-    string suit;
-    string rank;
+    Suit suit;
+    Rank rank;
 };
+
+// Overloaded operator for printing card
+ostream& operator<<(ostream& os, const Card& card);
 #endif //M1OEP_GTMONTEI_CARD_H

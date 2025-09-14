@@ -14,16 +14,19 @@ class Player {
     public:
     Player();
 
-    void setName(string name);
+    void setName(const string& name);
     void setHand(Card card1, Card card2);
 
-    string getName();
-    vector<Card> getHand();
+    string getName() const;
+    vector<Card> getHand() const;
 
     void addCard(Card card);
 
+    int getHandValue() const;
+    bool hasBlackjack() const;
+
     private:
-    string playername;
+    string playerName;
     vector<Card> hand;
 
 };

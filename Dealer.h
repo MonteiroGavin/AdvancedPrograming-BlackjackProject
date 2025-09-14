@@ -8,6 +8,8 @@
 #include <iostream>
 #include <vector>
 #include "Card.h"
+#include "Deck.h"
+
 using namespace std;
 
 class Dealer {
@@ -16,9 +18,13 @@ public:
 
     void setHand(Card card1, Card card2);
 
-    vector<Card> getHand();
+    vector<Card> getHand() const;
 
     void addCard(Card card);
+    int getHandValue() const;
+    bool hasBlackjack() const;
+
+    void dealerTurn(Deck& deck);
 
 private:
     vector<Card> hand;

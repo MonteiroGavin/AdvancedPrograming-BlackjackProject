@@ -39,9 +39,6 @@ public:
 private:
     // Using a vector as a stack of cards to push and pop cards off the top
     vector<Card> deck;
-    const string suits[4] = { "clubs", "spades", "diamonds", "hearts" };
-    const string ranks[13] = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9",
-                        "10", "Jack", "Queen", "King" };
 };
 
 #endif //M1OEP_GTMONTEI_DECK_H

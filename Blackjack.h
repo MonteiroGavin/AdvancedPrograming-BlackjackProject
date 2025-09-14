@@ -18,17 +18,14 @@ class Blackjack {
 public:
     Blackjack(Player player1, Dealer dealer);
 
-    Card checkBlackJack(vector<Card> hand);
-    Card playerTurn(vector<Card> hand);
-    Card dealerTurn(vector<Card> hand);
+    bool checkBlackJack(const vector<Card>& hand);
+    void playerTurn(vector<Card> hand);
+    void dealerTurn(vector<Card> hand);
 
     private:
     Deck deck;
     Player player;
     Dealer dealer;
-
-    vector<Card> playerHand;
-    vector<Card> dealerHand;
 
 };
 

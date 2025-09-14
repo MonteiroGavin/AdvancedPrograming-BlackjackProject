@@ -11,12 +11,11 @@ using namespace std;
 Deck::Deck() {
     // For every suit (clubs, spades, diamonds, hearts)
     for (int i = 0; i < 4; i++) {
+        Suit suit = static_cast<Suit>(i);
         // For every card rank
         for (int j = 0; j < 13; j++) {
-            Card c;
-            c.setSuit(suits[i]);
-            c.setRank(ranks[j]);
-            deck.push_back(c);
+            Rank rank = static_cast<Rank>(j);
+            deck.push_back(Card(suit, rank));
         }
     }
 }
@@ -24,7 +23,7 @@ Deck::Deck() {
 void Deck::shuffle() {
     // Using shuffle() function built into C++, used geeksforgeeks for help on this
     std::mt19937 rng(static_cast<unsigned int>(time(nullptr)));
-    std::shuffle(deck.begin(), deck.end(), std::mt19937());
+    std::shuffle(deck.begin(), deck.end(), rng);
 }
 
 Card Deck::drawCard() {

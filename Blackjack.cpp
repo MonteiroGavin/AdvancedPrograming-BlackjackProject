@@ -11,12 +11,16 @@
 /************* Blackjack class ******************/
 
 Blackjack::Blackjack(Player player, Dealer dealer) {
+    // Initialize player and dealer
+    this->player = player;
+    this->dealer = dealer;
+
     // Initialize a deck of cards
-    Deck deck = Deck();
+    Deck deck;
     // Shuffle deck
     deck.shuffle();
 
-    //Deal cards
+    // Deal cards
     Card playerDeal1 = deck.drawCard();
     Card dealerDeal1 = deck.drawCard();
     Card playerDeal2 = deck.drawCard();
@@ -24,18 +28,10 @@ Blackjack::Blackjack(Player player, Dealer dealer) {
     player.setHand(playerDeal1, playerDeal2);
     dealer.setHand(dealerDeal1, dealerDeal2);
 
-    // Checks if dealer has a blackjack
-    if (dealer.checkBlackjack(dealer.getHand())) {
-        cout << "The dealer has blackjack, you lose" << endl;
-        return;
+    if (dealer.hasBlackjack()) {
+        cout << "the dealer has blackjack, you lose." << endl;
     }
 
 
 }
 
-Card Blackjack::checkBlackjack(vector<Card> hand) {
-    int total = 0;
-    for (int i = 0; i < hand.size(); i++) {
-        hand[i].getRank() + total;
-    }
-}
