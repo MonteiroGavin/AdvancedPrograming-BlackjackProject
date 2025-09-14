@@ -14,7 +14,9 @@ Blackjack::Blackjack(Player& player, Dealer& dealer) {
     // Initialize player and dealer
     this->player = player;
     this->dealer = dealer;
+}
 
+void Blackjack::startRound() {
     // Shuffle deck
     deck.shuffle();
 
@@ -37,8 +39,6 @@ Blackjack::Blackjack(Player& player, Dealer& dealer) {
         cout << "You have blackjack, you win!" << endl;
         return;
     }
-
-
 
 
 }

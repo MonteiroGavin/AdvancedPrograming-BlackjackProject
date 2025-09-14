@@ -16,6 +16,7 @@ class Blackjack {
 public:
     Blackjack(Player& player1, Dealer& dealer);
 
+    void startRound();
     bool checkBlackJack(const vector<Card>& hand);
     void playerTurn(vector<Card> hand);
     void dealerTurn(vector<Card> hand);
