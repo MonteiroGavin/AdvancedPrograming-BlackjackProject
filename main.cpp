@@ -6,7 +6,6 @@
 #include "Player.h"
 #include "Dealer.h"
 #include "BlackJack.h"
-#include "BlackJack.h"
 using namespace std;
 
 string getNameFromUser();
@@ -42,6 +41,8 @@ int main() {
                 doneTurn = true;
             }
         }
+        blackjack.dealerTurn();
+
 
         cout << "To play another round enter 1, to quit enter 0: ";
         int continueChoice;

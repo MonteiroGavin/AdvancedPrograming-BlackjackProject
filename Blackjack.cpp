@@ -52,6 +52,10 @@ void Blackjack::playerHit() {
     player.printHand();
 }
 
+void Blackjack::dealerTurn() {
+    dealer.dealerTurn(deck);
+}
+
 void Blackjack::compareHands() {
     cout << endl;
 

@@ -65,6 +65,7 @@ void Dealer::dealerTurn(Deck& deck) {
     // Dealer must hit if hand is under 17
     while (getHandValue() < 17) {
         addCard(deck.drawCard());
+        printHand(false);
     }
 }
 

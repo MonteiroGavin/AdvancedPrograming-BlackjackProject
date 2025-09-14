@@ -18,6 +18,7 @@ public:
 
     void initialDeal();
     void playerHit();
+    void dealerTurn();
     void compareHands();
 
     private:
