@@ -10,13 +10,11 @@
 
 /************* Blackjack class ******************/
 
-Blackjack::Blackjack(Player player, Dealer dealer) {
+Blackjack::Blackjack(Player& player, Dealer& dealer) {
     // Initialize player and dealer
     this->player = player;
     this->dealer = dealer;
 
-    // Initialize a deck of cards
-    Deck deck;
     // Shuffle deck
     deck.shuffle();
 
@@ -27,11 +25,19 @@ Blackjack::Blackjack(Player player, Dealer dealer) {
     Card dealerDeal2 = deck.drawCard();
     player.setHand(playerDeal1, playerDeal2);
     dealer.setHand(dealerDeal1, dealerDeal2);
+    dealer.printHand(true);
+    player.printHand();
 
     if (dealer.hasBlackjack()) {
         cout << "the dealer has blackjack, you lose." << endl;
         return;
     }
+
+    if (player.hasBlackjack()) {
+        cout << "You have blackjack, you win!" << endl;
+        return;
+    }
+
 
 
 

@@ -3,32 +3,36 @@
 //
 
 #include <iostream>
-#include "Deck.h"
-#include "Card.h"
 #include "Player.h"
 #include "Dealer.h"
 #include "BlackJack.h"
 using namespace std;
 
-int main() {
-    string getNameFromUser();
+string getNameFromUser();
 
+int main() {
     Player player1;
     Dealer dealer;
     bool endGame = false;
 
     cout << "Welcome to blackjack!" << endl;
     cout << "Please enter your player name: ";
-    //player1.setName(getNameFromUser());
+    player1.setName(getNameFromUser());
 
     cout << endl << "Hello " << player1.getName() << " let's begin the game" << endl;
-    Blackjack blackjack;
     while (!endGame) {
-        blackjack.Blackjack(player1, dealer);
+        Blackjack blackjack(player1, dealer);
         cout << "To continue enter 1, to quit enter 0: ";
+        int choice;
+        cin >> choice;
+        if (choice == 0) {
+            endGame = true;
+        }
+
     }
 
-
+    cout << "Thank you for playing!" << endl;
+    return 0;
 }
 
 string getNameFromUser() {

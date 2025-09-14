@@ -5,8 +5,6 @@
 #ifndef M1OEP_GTMONTEI_BLACKJACK_H
 #define M1OEP_GTMONTEI_BLACKJACK_H
 
-
-
 #include <iostream>
 #include "Card.h"
 #include "Dealer.h"
@@ -16,7 +14,7 @@ using namespace std;
 
 class Blackjack {
 public:
-    Blackjack(Player player1, Dealer dealer);
+    Blackjack(Player& player1, Dealer& dealer);
 
     bool checkBlackJack(const vector<Card>& hand);
     void playerTurn(vector<Card> hand);
