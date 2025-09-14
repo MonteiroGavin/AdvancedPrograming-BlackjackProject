@@ -124,7 +124,6 @@ int getChoiceFromUser() {
         // Covers if input is empty
         if (input.empty()) {
             cout << "No input. Enter 0 or 1: ";
-            break;
         }
 
         // To check if the line has any spaces
@@ -138,7 +137,6 @@ int getChoiceFromUser() {
         // Confirms if has more than one word
         if (containsSpace) {
             cout << "Invalid input. Enter 0 or 1: ";
-            break;
         }
         if (input == "1") {
             return 1;
@@ -146,6 +144,5 @@ int getChoiceFromUser() {
         if (input == "0") {
             return 0;
         }
-        cout << "Invalid input. Enter a 0 or 1: ";
     }
 }
