@@ -30,8 +30,12 @@ void Blackjack::initialDeal() {
     Card dealerDeal1 = deck.drawCard();
     Card playerDeal2 = deck.drawCard();
     Card dealerDeal2 = deck.drawCard();
+
+    // Set hands
     player.setHand(playerDeal1, playerDeal2);
     dealer.setHand(dealerDeal1, dealerDeal2);
+
+    // Print hands
     dealer.printHand(true);
     player.printHand();
 
@@ -51,6 +55,7 @@ void Blackjack::playerHit() {
 }
 
 void Blackjack::dealerTurn() {
+    // Runs dealerTurn() but needed the same deck in blackjack class
     dealer.dealerTurn(deck);
 }
 
@@ -60,13 +65,15 @@ void Blackjack::compareHands() {
     player.printHand();
     dealer.printHand(false);
 
-    cout << " Your total: " << dealer.getHandValue() << endl;
+    cout << "Your total: " << player.getHandValue() << endl;
 
     if (player.getHandValue() > dealer.getHandValue()) {
-        cout << "Player wins!" << endl;
+        cout << player.getName() <<" wins!" << endl;
 
     } else if (player.getHandValue() < dealer.getHandValue()) {
         cout << "Dealer wins!" << endl;
+    } else if (player.getHandValue() == dealer.getHandValue()) {
+        cout << "Push, no one wins." << endl;
     }
 }
 

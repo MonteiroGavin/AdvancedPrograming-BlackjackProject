@@ -34,7 +34,7 @@ public:
     * Clears dealer's hand
     * Requires: Nothing
     * Modifies: Hand vector
-    * Effects: Returns nothing
+    * Effects: Returns nothing, clears hand
     */
     void clearHand();
 

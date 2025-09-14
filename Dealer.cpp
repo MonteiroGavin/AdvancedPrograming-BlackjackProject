@@ -60,7 +60,7 @@ bool Dealer::hasBlackjack() const {
 
 bool Dealer::bust() const {
     // True if hand is over 21
-    return getHandValue() >= 21;
+    return getHandValue() > 21;
 }
 
 void Dealer::dealerTurn(Deck& deck) {

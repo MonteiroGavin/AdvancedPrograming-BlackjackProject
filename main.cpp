@@ -14,6 +14,7 @@ int main() {
     Player player1;
     Dealer dealer;
     bool endGame = false;
+
     int getChoiceFromUser();
 
     cout << "Welcome to blackjack!" << endl;
@@ -21,8 +22,11 @@ int main() {
     player1.setName(getNameFromUser());
 
     cout << endl << "Hello " << player1.getName() << " let's begin the game." << endl;
+    // Runs until game round is over
     while (!endGame) {
         bool doneTurn = false;
+
+        // Initialize blackjack
         Blackjack blackjack(player1, dealer);
         blackjack.initialDeal();
 
@@ -35,12 +39,12 @@ int main() {
                 if (player1.bust()) {
                     cout << "You went bust. You lose." << endl;
                     doneTurn = true;
-                    endGame = true;
-
                 }
             }
+            // Blackjack check
             if (player1.getHandValue() == 21) {
                 cout << "You have blackjack!" << endl;
+                // Will finish turn if has blackjack
                 doneTurn = true;
             }
 
@@ -50,27 +54,43 @@ int main() {
                 doneTurn = true;
             }
         }
-        // Dealer plays turn
-        blackjack.dealerTurn();
-        if (dealer.bust()) {
-            cout << "You win!" << endl;
-            endGame = true;
+        // Bool to help keep track when the game round ends
+        bool roundOver = false;
+        // Dealer plays turn if player didn't bust
+        if (!player1.bust()) {
+            // Dealer's turn
+            blackjack.dealerTurn();
+            // Check if dealer went bust
+            if (dealer.bust()) {
+                cout << "You win!" << endl;
+                roundOver = true;;
+            } else {
+                // To break up some of the text blocks
+                cout << endl << "Press enter to see who won: " << endl;
+                getchar();
+
+                // Compare hands
+                blackjack.compareHands();
+                cout << endl << endl;
+                roundOver = true;
+            }
+
         }
-        cout << endl << "Press enter to see who won: " << endl;
-        cin.ignore();
-        cin.get();
+        // Check to see if round has finished
+        if (roundOver || player1.bust() || dealer.bust()) {
+            string continueInput;
+            cout << "To play another round enter 1, to quit enter 0: ";
+            getline(cin, continueInput);
 
-
-        // Compare hands
-        blackjack.compareHands();
-        cout << endl << endl;
-
-        cout << "To play another round enter 1, to quit enter 0: ";
-        int continueChoice;
-        cin >> continueChoice;
-        if (continueChoice == 0) {
-            endGame = true;
+            if (continueInput == "0") {
+                endGame = true;
+            } else if (continueInput != "1") {
+                cout << endl << "Invalid input. Exiting game." << endl;
+                endGame = true;
+            }
+            cout << endl << endl;
         }
+
     }
 
     cout << "Thank you for playing!" << endl;
@@ -104,7 +124,7 @@ int getChoiceFromUser() {
         // Covers if input is empty
         if (input.empty()) {
             cout << "No input. Enter 0 or 1: ";
-            continue;
+            break;
         }
 
         // To check if the line has any spaces
@@ -118,7 +138,7 @@ int getChoiceFromUser() {
         // Confirms if has more than one word
         if (containsSpace) {
             cout << "Invalid input. Enter 0 or 1: ";
-            continue;
+            break;
         }
         if (input == "1") {
             return 1;

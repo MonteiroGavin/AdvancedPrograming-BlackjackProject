@@ -65,11 +65,13 @@ bool Player::hasBlackjack() const {
 }
 
 bool Player::bust() const {
+    // True if hand is over 21
     return getHandValue() > 21;
 }
 
 void Player::printHand() const{
     cout << "Your hand: ";
+    // Loops through all cards in hand
     for (const Card& card : hand) {
         cout << card << ", ";
     }
