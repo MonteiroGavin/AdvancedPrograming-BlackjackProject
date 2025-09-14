@@ -37,12 +37,10 @@ void Blackjack::initialDeal() {
 
     if (dealer.hasBlackjack()) {
         cout << "the dealer has blackjack, you lose." << endl;
-        return;
     }
 
     if (player.hasBlackjack()) {
         cout << "You have blackjack, you win!" << endl;
-        return;
     }
 }
 
@@ -59,12 +57,9 @@ void Blackjack::dealerTurn() {
 void Blackjack::compareHands() {
     cout << endl;
 
-    cout << "Your hand: ";
     player.printHand();
-    cout << " Your total: " << player.getHandValue() << endl;
-
-    cout << "dealer's hand: ";
     dealer.printHand(false);
+
     cout << " Your total: " << dealer.getHandValue() << endl;
 
     if (player.getHandValue() > dealer.getHandValue()) {

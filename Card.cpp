@@ -26,6 +26,7 @@ Suit Card::getSuit() const {
 
 int Card::getValue() const{
     switch (rank) {
+        // All face cards are worth 10
         case Rank::Jack: return 10;
         case Rank::Queen: return 10;
         case Rank::King: return 10;

@@ -14,35 +14,56 @@ int main() {
     Player player1;
     Dealer dealer;
     bool endGame = false;
-    bool doneTurn = false;
+    int getChoiceFromUser();
 
     cout << "Welcome to blackjack!" << endl;
     cout << "Please enter your player name: ";
     player1.setName(getNameFromUser());
 
-    cout << endl << "Hello " << player1.getName() << " let's begin the game" << endl;
+    cout << endl << "Hello " << player1.getName() << " let's begin the game." << endl;
     while (!endGame) {
+        bool doneTurn = false;
         Blackjack blackjack(player1, dealer);
         blackjack.initialDeal();
 
         // While loop to allow player to hit multiple times
         while (!doneTurn){
-            int getChoiceFromUser();
+            int choice = getChoiceFromUser();
             // Player hit
-            if (getChoiceFromUser() == 1) {
+            if (choice == 1) {
                 blackjack.playerHit();
+                if (player1.bust()) {
+                    cout << "You went bust. You lose." << endl;
+                    doneTurn = true;
+                    endGame = true;
+
+                }
             }
-            // Check if hit resulted in a bust
-            if (player1.bust()) {
+            if (player1.getHandValue() == 21) {
+                cout << "You have blackjack!" << endl;
                 doneTurn = true;
             }
+
             // Stand, ending turn
-            if (getChoiceFromUser() == 0) {
+            if (choice == 0) {
+                cout << "You stand." << endl;
                 doneTurn = true;
             }
         }
+        // Dealer plays turn
         blackjack.dealerTurn();
+        if (dealer.bust()) {
+            cout << "You win!" << endl;
+            endGame = true;
+        }
+        cout << endl << "Press enter to see who won: " << endl;
+        cin.ignore();
+        cin.get();
 
+
+        // Compare hands
+        blackjack.compareHands();
+        cout << endl << endl;
 
         cout << "To play another round enter 1, to quit enter 0: ";
         int continueChoice;
@@ -50,8 +71,6 @@ int main() {
         if (continueChoice == 0) {
             endGame = true;
         }
-
-
     }
 
     cout << "Thank you for playing!" << endl;
@@ -101,15 +120,12 @@ int getChoiceFromUser() {
             cout << "Invalid input. Enter 0 or 1: ";
             continue;
         }
-
         if (input == "1") {
             return 1;
         }
-        if (input == "0")
-            return 0;{
+        if (input == "0") {
+            return 0;
         }
-
         cout << "Invalid input. Enter a 0 or 1: ";
-
     }
 }

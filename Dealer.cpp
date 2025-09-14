@@ -44,6 +44,7 @@ int Dealer::getHandValue() const{
             aceCount++;
         }
     }
+    // If over 21 and there's an ace in hand, turn ace value from 11 to 1
     while (sum > 21 && aceCount > 0) {
         // Changing ace value to 1 if hand goes over 21
         sum -= 10;
@@ -58,28 +59,45 @@ bool Dealer::hasBlackjack() const {
 }
 
 bool Dealer::bust() const {
+    // True if hand is over 21
     return getHandValue() >= 21;
 }
 
 void Dealer::dealerTurn(Deck& deck) {
+    // Reveal dealers full hand
+    printHand(false);
+
     // Dealer must hit if hand is under 17
     while (getHandValue() < 17) {
+        cout << "Dealer hits " << endl;
+        // Draw card
         addCard(deck.drawCard());
         printHand(false);
     }
+    if (bust()) {
+        cout << "The dealer went bust. " << endl;
+    }
+    else {
+        cout << "Dealer stands " << endl;
+    }
 }
+
 
 void Dealer::printHand(bool hiddenCard) const {
     cout << "Dealer's hand: ";
+    // For the size of the hand
     for (int i = 0; i < hand.size(); i++) {
+        // Prints hidden card as the first card if hiddenCard is true
         if (i == 0 && hiddenCard) {
             cout << "[Hidden card], ";
         } else {
-            cout << hand[i];
+            // Prints normal card
+            cout << hand[i] << ", ";
         }
     }
     cout << endl;
     if (!hiddenCard) {
-        cout << "Total: " << getHandValue();
+        // Only prints total if hiddenCard is false
+        cout << "Total: " << getHandValue() << endl;
     }
 }

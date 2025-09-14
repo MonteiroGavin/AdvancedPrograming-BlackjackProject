@@ -12,7 +12,7 @@ Deck::Deck() {
     // For every suit (clubs, spades, diamonds, hearts)
     for (int i = 0; i < 4; i++) {
         Suit suit = static_cast<Suit>(i);
-        // For every card rank
+        // For every card rank, not starting at 0 because my rank enums start at 2
         for (int j = 2; j < 14; j++) {
             Rank rank = static_cast<Rank>(j);
             deck.push_back(Card(suit, rank));
