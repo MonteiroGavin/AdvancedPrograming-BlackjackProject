@@ -4,7 +4,7 @@ Blackjack:
 and who ever's hand is closest to 21 after drawing cards, without going over, wins. This program 
 uses many Module one concepts such as:
 - Has-A class relationships:
-  - 
+  - Card and Deck. The deck class is composed of cards, therefore deck has a (or multiple) card(s).
 - Is-A class relationships:
   - 
 # Bugs
@@ -19,17 +19,16 @@ Finally, more than one player implementation would be interesting to explore as 
 
 # Citations
 
-I used geeksforgeeks for my deck shuffle() function: https://www.geeksforgeeks.org/dsa/shuffle-a-deck-of-cards-3/
-
-I also got help with my enums for rank and suit from codeguru forums: https://forums.codeguru.com/showthread.php?486964-Card-and-Deck-Class-using-enum-help
-
 # Grade
 
-I think I have earned 160 points
-- Main: 40 points, many concepts of input validation that all work accordingly.
-- Classes: 20 points each for Card, Deck, Player, Dealer, and Blackjack totalling 100 points. All of these are either in the main program 
-or are in other classes within the main program.
-- Overloaded operator, enums: My card Rank and Suit are implemented throughout my program and the overloaded print is used often as well.
+I think I have earned FILL IN points
+- Main.cpp: 
+- Testing.cpp: 
+- Has-A relationships: I believe I have credit for the following relationships: Deck has Card(s) which would be 20 points. Dealer and Player both have hands which have cards(I do not know if 
+since player and dealer are too similar becuase of the way they both use hand in the same way) which would be 40 points. Blackjack has a Player a Dealer and a Deck, since these 
+are three has-a relationships, they are 60 points. This brings a total of 110 points (If dealer and player are counted as the same, then 100 points)
+- Is-A relationships:
+- File I/O:
 - Style and documentation: 0 points. I think there are comments and details where needed and are throughout my program.
-- Video: 0 points. I run through mulitple times and reach different ways to end the round, showing many parts of my program. And input validation is demonstrated.
-- Lifespan of project: I created the repository on Aug 28th, well before the 7 day minimun. I have also had at least 3 days of significant work.
+- Video: 0 points. I run through mulitple times and reach different ways to end the round, showing many parts of my program.
+- Lifespan of project: I created the repository on Sep 23rd, well before the 7 day minimun. I have also had at least 3 days of significant work.

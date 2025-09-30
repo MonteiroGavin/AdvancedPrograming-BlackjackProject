@@ -16,8 +16,7 @@ add_executable(M1OEP_gtmontei
         Card.h
         Card.cpp
         Blackjack.cpp
-        Blackjack.h
-        testing.cpp)
+        Blackjack.h)
 
 # Tet program
 add_executable(test testing.cpp
