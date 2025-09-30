@@ -27,7 +27,7 @@ Finally, more than one player implementation would be interesting to explore as 
 
 # Grade
 
-I think I have earned FILL IN points
+I think I have earned 240 points
 - Main.cpp: 
 - Testing.cpp: 
 - Has-A relationships: I believe I have credit for the following relationships: 
@@ -35,9 +35,10 @@ I think I have earned FILL IN points
   - Dealer and Player both have hands which have cards(I do not know if since player and dealer are too similar because of the way they both 
   use hand in the same way) which would be 40 points.
   - Blackjack has a Player a Dealer a Deck and cards, since these  are four has-a 
-  relationships, they are 80 points. This brings a total of 140 points (If dealer and player are counted as the same, then 120 points)
+  relationships, they are 80 points. 
+  - This brings a total of 140 points (If dealer and player are counted as the same, then 120 points)
 - Is-A relationships: Dealer Is-A relationship with Player, this is the only use of Is-A relationship so it totals to 20 points
 - File I/O:
 - Style and documentation: 0 points. I think there are comments and details where needed and are throughout my program.
 - Video: 0 points. I run through multiple times and reach different ways to end the round, showing many parts of my program.
-- Lifespan of project: I created the repository on Sep 23rd, well before the 7 day minimum. I have also had at least 3 days of significant work.
+- Lifespan of project: 0 points. I created the repository on Sep 23rd, well before the 7 day minimum. I have also had at least 3 days of significant work.
