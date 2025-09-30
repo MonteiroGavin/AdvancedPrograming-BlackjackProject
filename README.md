@@ -1,12 +1,12 @@
-# CS 2300 Modulee 1 Open Ended Project Gavin Monteiro:
+# CS 2300 Module 2 Open Ended Project Gavin Monteiro:
 Blackjack: 
     My program runs the card game blackjack, with one player inputs. The player versus a dealer
 and who ever's hand is closest to 21 after drawing cards, without going over, wins. This program 
 uses many Module one concepts such as:
-- Enumerated types: for both card rank and suit, initializing them as Rank and Suit
-- Overloaded operators: For printing cards
-- Class separation: With all classes in the program
-
+- Has-A class relationships:
+  - 
+- Is-A class relationships:
+  - 
 # Bugs
 At the moment, no bugs are currently present. I did have to use break for some of my input validations
 that could probably work without using that but I was having trouble finding a good way to do so.
