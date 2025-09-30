@@ -2,20 +2,24 @@
 // Created by Gavin  Monteiro on 9/30/25.
 //
 
-#include "Quiz.h"
+#include "Card.h"
+#include "Deck.h"
+#include "Player.h"
+#include "Dealer.h"
+#include "Blackjack.h"
 #include <iostream>
 using namespace std;
 
-bool testQuiz();
+bool testBlackjack();
 
 int main() {
-    if (testQuiz()) {
-        cout << "Passed all quiz test cases" << endl;
+    if (testBlackjack()) {
+        cout << "Passed all blackjack test cases" << endl;
     }
     return 0;
 }
 
-bool testQuiz() {
+bool testBlackjack() {
     bool passed = true;
 
     Quiz quiz;
