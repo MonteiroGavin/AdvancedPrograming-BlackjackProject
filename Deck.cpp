@@ -20,6 +20,10 @@ Deck::Deck() {
     }
 }
 
+int Deck::size() {
+    return deck.size();
+}
+
 void Deck::shuffle() {
     // Using shuffle() function built into C++, used geeksforgeeks for help on this
     std::mt19937 rng(static_cast<unsigned int>(time(nullptr)));

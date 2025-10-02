@@ -21,6 +21,14 @@ public:
     Deck();
 
     /*
+    * Size of deck
+    * Requires: Nothing
+    * Modifies: Nothing
+    * Effects: Return int of deck vector size
+    */
+    int size();
+
+    /*
     * Deck shuffle
     * Requires: Nothing
     * Modifies: Deck

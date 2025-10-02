@@ -22,63 +22,99 @@ int main() {
 bool testBlackjack() {
     bool passed = true;
 
-    Quiz quiz;
-    if (quiz.getTitle() != "Default quiz" || quiz.getTotalPointsCorrect() != 0 || quiz.getTotalPointsPossible() != 0) {
+    // Card default constructor test, also tests getRank(), getValue(), getSuit(), and isAce()
+    const Card card;
+    if (card.getSuit() != Suit::Clubs || card.getRank() != Rank::Ace || card.getValue() != 11 || card.isAce() != true) {
         passed = false;
-        cout << "FAILED default constructor test case" << endl;
-    }
-    Question q1 = Question();
-    q1.setPrompt("Do emus lay eggs?");
-    q1.setPoints(5);
-    q1.addAnswer("yes", true);
-    q1.addAnswer("no", false);
-    answer idk = {"idk", false};
-    q1.addAnswer(idk);
-    if (q1.getPoints() != 5 || q1.getNumAnswers() != 3 || q1.getPrompt() == "") {
-        passed = false;
-        cout << "FAILED question set test case" << endl;
-    }
-    q1.removeAnswer(1);
-    q1.removeAnswer("idk");
-    if (q1.getNumAnswers() != 1) {
-        passed = false;
-        cout << "FAILED question remove test case" << endl;
-    }
-    if (!q1.isCorrect(0) || q1.isCorrect(10)) {
-        passed = false;
-        cout << "FAILED question is correct test case" << endl;
+        cout << "FAILED card default constructor test case" << endl;
     }
 
-    quiz.addQuestion(q1);
-
-    Question q2 = Question();
-    q2.setPrompt("Do emus eat people?");
-    q2.setPoints(5);
-    q2.addAnswer("yes", false);
-    q2.addAnswer("no", true);
-    quiz.addQuestion(q2);
-
-    if (quiz.getQuestion(0).getPrompt() != q1.getPrompt() || quiz.getQuestion("Do emus lay eggs?").getPrompt() != q1.getPrompt()) {
+    // Deck constructor test
+    Deck deck1;
+    if (deck1.size() != 52) {
         passed = false;
-        cout << "FAILED question getQuestion test case" << endl;
-    }
-    quiz.setTitle("Emu quiz");
-    if (quiz.getTitle() != "Emu quiz") {
-        passed = false;
-        cout << "FAILED question set title test case" << endl;
+        cout << "FAILED deck default constructor test case" << endl;
     }
 
-    if (!quiz.removeQuestion(0) || !quiz.removeQuestion("Do emus eat people?")) {
+    // All of this tests shuffle
+    Deck deck2; // Second deck to compare
+    deck1.shuffle();
+    deck2.shuffle();
+    // To keep track of identical located cards between the decks
+    int similarities = 0;
+    // Checks the value of each card
+    for (int i = 0; i < 52; i++) {
+        Card card1 = deck1.drawCard();
+        Card card2 = deck2.drawCard();
+        if (card1.getValue() == card2.getValue()) {
+            similarities++;
+        }
+    }
+    // Fails if decks are identical
+    if (similarities == 52) {
         passed = false;
-        cout << "FAILED question remove test case" << endl;
+        cout << "FAILED deck shuffle test case" << endl;
     }
 
-    // Doing this last when I am done using q1
-    q1.clearAnswers();
-    if (q1.getNumAnswers() != 0) {
+    deck1.drawCard();
+    deck1.drawCard();
+    if (deck1.size() != 50) {
         passed = false;
-        cout << "FAILED question clear answer test case" << endl;
+        cout << "FAILED deck draw card test case" << endl;
     }
+
+
+    Player playerTest;
+
+    // Player constructor test case
+    if (playerTest.getName() != "John") {
+        passed = false;
+        cout << "FAILED player name test case" << endl;
+    }
+
+    playerTest.setName("gavin");
+    // Player set name test and another get name test case
+    if (playerTest.getName() != "gavin") {
+        passed = false;
+        cout << "FAILED player set name test case" << endl;
+    }
+
+    // Player set hand test case
+    playerTest.setHand(deck1.drawCard(), deck1.drawCard() );
+    if (playerTest.getHand().size() != 2) {
+        passed = false;
+        cout << "FAILED player set hand test case" << endl;
+    }
+
+    // Player clear hand test case
+    playerTest.clearHand();
+    if (playerTest.getHandValue() != 0) {
+        passed = false;
+        cout << "FAILED player clear hand test case" << endl;
+    }
+
+    Card ace(Suit::Clubs, Rank::Ace);
+    Card ten(Suit::Clubs, Rank::Ten);
+    playerTest.setHand(ace, ten);
+
+    // Player has blackjack test and another handvalue test
+    if (playerTest.hasBlackjack() != true || playerTest.getHandValue() != 21) {
+        passed = false;
+        cout << "FAILED player blackjack check test case" << endl;
+    }
+
+    playerTest.addCard(deck1.drawCard());
+
+    // Player test for bust check and another add card test case
+    if (!playerTest.bust()) {
+        passed = false;
+        cout << "FAILED player bust check test case" << endl;
+    }
+
+
+    Dealer dealerTest;
+
+    Blackjack blackjack(playerTest, dealerTest);
 
     return passed;
 }
