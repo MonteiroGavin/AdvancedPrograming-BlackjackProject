@@ -6,8 +6,8 @@
 #include "Player.h"
 #include "Dealer.h"
 #include "BlackJack.h"
+#include <sstream>
 using namespace std;
-
 
 string getNameFromUser();
 
@@ -23,8 +23,6 @@ int main() {
     player1.setName(getNameFromUser());
 
     cout << endl << "Hello " << player1.getName() << " let's begin the game." << endl;
-    cout << "Your money: $" << player1.getMoney() << endl;
-    float playerBet = 0.00;
 
 
     // Runs until game round is over
@@ -33,7 +31,21 @@ int main() {
 
         // Initialize blackjack
         Blackjack blackjack(player1, dealer);
+
+        bool passedBet = false;
+        double placedBet = 0;
+        while (passedBet == false) {
+            cout << "Your money: $" << player1.getMoney() << endl;
+            double getBetFromUser();
+            placedBet = getBetFromUser();
+            if (blackjack.placeBet(placedBet)) {
+                passedBet = true;
+            } else {
+                passedBet = false;
+            }
+        }
         blackjack.initialDeal();
+
 
         // While loop to allow player to hit multiple times
         while (!doneTurn){
@@ -149,5 +161,45 @@ int getChoiceFromUser() {
         if (input == "0") {
             return 0;
         }
+    }
+}
+
+double getBetFromUser() {
+    string input;
+    double floatInput;
+    cout << "Please place your bet: ";
+
+    while (true) {
+        // Gets whole line of input
+        getline(cin, input);
+
+        // Covers if input is empty
+        if (input.empty()) {
+            cout << "No input. Enter a bet: ";
+            continue;
+        }
+
+        // To check if the line has any spaces
+        bool containsSpace = false;
+        // Loops to see if there is a space
+        for (int i = 0; i < input.length(); i++) {
+            if (isspace(input[i])) {
+                containsSpace = true;
+            }
+        }
+        // True if there is a space in the input
+        if (containsSpace) {
+            cout << "Invalid input. Enter a bet: ";
+            continue;
+        }
+
+        // Check to see if input contains only numbers
+        stringstream ss;
+        ss << input;
+        if (ss >> floatInput && ss.eof()) {
+            return floatInput;
+        }
+
+        cout << "Invalid input. Enter a bet: ";
     }
 }
