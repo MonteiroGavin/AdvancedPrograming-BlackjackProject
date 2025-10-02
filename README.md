@@ -24,7 +24,8 @@ There is also no betting system or win streak/score implemented that could be fu
 Finally, more than one player implementation would be interesting to explore as well.
 
 # Citations
-
+// Used stackoverflow to help with printing test cases in testing.cpp, especially Player and Dealer printHand()
+https://stackoverflow.com/questions/46061713/scope-of-redirection-of-stdcout
 # Grade
 
 I think I have earned 240 points

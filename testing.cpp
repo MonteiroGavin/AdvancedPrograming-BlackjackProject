@@ -8,6 +8,7 @@
 #include "Dealer.h"
 #include "Blackjack.h"
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 bool testBlackjack();
@@ -27,6 +28,16 @@ bool testBlackjack() {
     if (card.getSuit() != Suit::Clubs || card.getRank() != Rank::Ace || card.getValue() != 11 || card.isAce() != true) {
         passed = false;
         cout << "FAILED card default constructor test case" << endl;
+    }
+
+    // Card print test case
+    stringstream ss;
+    // Making a stringstream of card and turinging it into a string, then comparing
+    ss << card;
+    string print = ss.str();
+    if (print != "Ace of Clubs") {
+        passed = false;
+        cout << "FAILED card print test case" << endl;
     }
 
     // Deck constructor test
@@ -101,6 +112,18 @@ bool testBlackjack() {
     if (playerTest.hasBlackjack() != true || playerTest.getHandValue() != 21) {
         passed = false;
         cout << "FAILED player blackjack check test case" << endl;
+    }
+
+    // Print hand test case
+    stringstream hand;
+    // Stack overflow and clion autofill helped with these three lines
+    streambuf* redirectedCout = cout.rdbuf(hand.rdbuf());
+    playerTest.printHand();
+    cout.rdbuf(redirectedCout);
+    string printHand = hand.str();
+    if (printHand != "Your hand: Ace of Clubs, Ten of Clubs, \nYour hand total: 21\n") {
+        passed = false;
+        cout << "FAILED player print hand test case" << endl;
     }
 
     playerTest.addCard(deck1.drawCard());
