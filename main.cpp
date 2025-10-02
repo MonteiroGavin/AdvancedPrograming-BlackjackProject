@@ -42,6 +42,7 @@ int main() {
                 passedBet = true;
             } else {
                 passedBet = false;
+                cout << "Bet is higher than the amount of money you have." << endl;
             }
         }
         blackjack.initialDeal();
@@ -80,7 +81,7 @@ int main() {
             // Check if dealer went bust
             if (dealer.bust()) {
                 cout << "You win!" << endl;
-                roundOver = true;;
+                roundOver = true;
             } else {
                 // To break up some of the text blocks
                 cout << endl << "Press enter to see who won: " << endl;

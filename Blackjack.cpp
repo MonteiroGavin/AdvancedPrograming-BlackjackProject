@@ -18,11 +18,12 @@ Blackjack::Blackjack(Player& player, Dealer& dealer)
 {}
 
     bool Blackjack::placeBet(float bet) {
-    if (player.getMoney() > bet && bet > 2) {
+    if (player.getMoney() > bet+1 && bet > 1) {
         player.setMoney(player.getMoney() - bet);
         return true;
+    } else {
+        return false;
     }
-    return false;
 }
 
 

@@ -41,7 +41,7 @@ void Dealer::printHand(bool hiddenCard) const {
     for (int i = 0; i < dealerHand.size(); i++) {
         // Prints hidden card as the first card if hiddenCard is true
         if (i == 0 && hiddenCard) {
-            cout << "[Hidden Card], ";
+            cout << "[Hidden Card]";
         } else {
             // Prints normal card
             cout << dealerHand[i];
