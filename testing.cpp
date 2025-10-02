@@ -62,7 +62,7 @@ bool testBlackjack() {
         }
     }
     // Fails if decks are identical
-    if (similarities == 52) {
+    if (similarities > 30) {
         passed = false;
         cout << "FAILED deck shuffle test case" << endl;
     }
@@ -107,6 +107,7 @@ bool testBlackjack() {
 
     Card ace(Suit::Clubs, Rank::Ace);
     Card ten(Suit::Clubs, Rank::Ten);
+    Card king(Suit::Clubs, Rank::King);
     playerTest.setHand(ace, ten);
 
     // Player has blackjack test and another handvalue test
@@ -115,21 +116,23 @@ bool testBlackjack() {
         cout << "FAILED player blackjack check test case" << endl;
     }
 
-    // Print hand test case
+    // playee print hand test case
     stringstream hand;
     // Stack overflow and clion autofill helped with these three lines
     streambuf* redirectedCout = cout.rdbuf(hand.rdbuf());
     playerTest.printHand();
     cout.rdbuf(redirectedCout);
     string printHand = hand.str();
-    if (printHand != "Your hand: Ace of Clubs, Ten of Clubs, \nYour hand total: 21\n") {
+    if (printHand != "Your hand: Ace of Clubs, Ten of Clubs\nYour hand total: 21\n") {
         passed = false;
         cout << "FAILED player print hand test case" << endl;
     }
 
-    playerTest.addCard(deck1.drawCard());
 
     // Player test for bust check and another add card test case
+    playerTest.clearHand();
+    playerTest.setHand(ace,ten);
+    playerTest.addCard(king);
     if (!playerTest.bust()) {
         passed = false;
         cout << "FAILED player bust check test case" << endl;
