@@ -21,6 +21,16 @@ public:
     */
     Blackjack(Player& player1, Dealer& dealer);
 
+
+    /*
+    * Player bet placing
+    * Requires: Float bet
+    * Modifies: Player's money
+    * Effects: Checks if player has enough money for a bet and then subtracts bet from Player's money,
+    * true if passes, false if not, will prompt until a valid bet is placed
+    */
+    bool placeBet(float bet);
+
     /*
     * Initial deal and first steps of game
     * Requires: Nothing
@@ -57,6 +67,7 @@ public:
     Deck deck;
     Player& player;
     Dealer& dealer;
+    float bets;
 };
 
 #endif //M1OEP_GTMONTEI_BLACKJACK_H

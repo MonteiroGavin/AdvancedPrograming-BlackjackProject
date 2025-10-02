@@ -23,6 +23,10 @@ int main() {
     player1.setName(getNameFromUser());
 
     cout << endl << "Hello " << player1.getName() << " let's begin the game." << endl;
+    cout << "Your money: $" << player1.getMoney() << endl;
+    float playerBet = 0.00;
+
+
     // Runs until game round is over
     while (!endGame) {
         bool doneTurn = false;

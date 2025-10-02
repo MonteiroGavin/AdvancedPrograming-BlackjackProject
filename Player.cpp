@@ -9,6 +9,7 @@ using namespace std;
 
 Player::Player() {
     playerName = "John";
+    money = 20.00;
 }
 
 void Player::setName(const string& name) {
@@ -23,6 +24,10 @@ void Player::setHand(Card card1, Card card2) {
     hand.push_back(card2);
 }
 
+void Player::setMoney(float money) {
+    this->money += money;
+}
+
 void Player::clearHand() {
     hand.clear();
 }
@@ -33,6 +38,10 @@ string Player::getName() const {
 
 vector<Card> Player::getHand() const{
     return hand;
+}
+
+float Player::getMoney() const {
+    return money;
 }
 
 void Player::addCard(Card card) {

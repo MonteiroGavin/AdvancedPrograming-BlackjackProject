@@ -38,6 +38,14 @@ class Player {
     void setHand(Card card1, Card card2);
 
     /*
+    * set money to player's money
+    * Requires: Float money
+    * Modifies: set new money to player's money
+    * Effects: Returns nothing
+    */
+    void setMoney(float money);
+
+    /*
     * Clears player's hand
     * Requires: Nothing
     * Modifies: Hand vector
@@ -60,6 +68,14 @@ class Player {
     * Effects: Returns player's hand
     */
     vector<Card> getHand() const;
+
+    /*
+    * Gives the Players money
+    * Requires: Nothing
+    * Modifies: Nothing
+    * Effects: Returns money
+    */
+    float getMoney() const;
 
     /*
     * Adds a card to player's hand
@@ -104,6 +120,7 @@ class Player {
     private:
     string playerName;
     vector<Card> hand;
+    float money;
 
 };
 

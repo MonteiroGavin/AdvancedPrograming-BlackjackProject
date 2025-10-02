@@ -74,13 +74,12 @@ bool testBlackjack() {
         cout << "FAILED deck draw card test case" << endl;
     }
 
-
     Player playerTest;
 
     // Player constructor test case
-    if (playerTest.getName() != "John") {
+    if (playerTest.getName() != "John" || playerTest.getMoney() != 20.00) {
         passed = false;
-        cout << "FAILED player name test case" << endl;
+        cout << "FAILED player constructor test case" << endl;
     }
 
     playerTest.setName("gavin");
@@ -179,7 +178,6 @@ bool testBlackjack() {
         passed = false;
         cout << "FAILED Dealer turn test case" << endl;
     }
-
 
 
 
