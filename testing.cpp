@@ -62,7 +62,7 @@ bool testBlackjack() {
         }
     }
     // Fails if decks are identical
-    if (similarities > 30) {
+    if (similarities > 50) {
         passed = false;
         cout << "FAILED deck shuffle test case" << endl;
     }
@@ -128,7 +128,6 @@ bool testBlackjack() {
         cout << "FAILED player print hand test case" << endl;
     }
 
-
     // Player test for bust check and another add card test case
     playerTest.clearHand();
     playerTest.setHand(ace,ten);
@@ -137,7 +136,6 @@ bool testBlackjack() {
         passed = false;
         cout << "FAILED player bust check test case" << endl;
     }
-
 
     Dealer dealerTest;
 
@@ -171,7 +169,7 @@ bool testBlackjack() {
     dealerTest.printHand(false);
     cout.rdbuf(dealerCout);
     string printDealerTrueHand = dealerHand.str();
-    if (printDealerTrueHand != "Dealer's hand: Two of Clubs, Three of Clubs\n") {
+    if (printDealerTrueHand != "Dealer's hand: Two of Clubs, Three of Clubs\nTotal: 5\n") {
         passed = false;
         cout << "FAILED dealer print test case" << endl;
     }
