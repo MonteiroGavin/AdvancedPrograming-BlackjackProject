@@ -137,6 +137,52 @@ bool testBlackjack() {
 
     Dealer dealerTest;
 
+    // Dealer constructor test case
+    if (dealerTest.getName() != "Dealer") {
+        passed = false;
+        cout << "FAILED Dealer constructor test case" << endl;
+    }
+
+    Card two(Suit::Clubs, Rank::Two);
+    Card three(Suit::Clubs, Rank::Three);
+    dealerTest.setHand(two, three);
+
+    // Dealer print hidden hand test case
+    stringstream dealerHand;
+    // Stack overflow and clion autofill helped with these three lines
+    streambuf* dealerCout = cout.rdbuf(dealerHand.rdbuf());
+    dealerTest.printHand(true);
+    cout.rdbuf(dealerCout);
+    string printDealerHiddenHand = dealerHand.str();
+    if (printDealerHiddenHand != "Dealer's hand: [Hidden Card], Three of Clubs\n") {
+        passed = false;
+        cout << "FAILED Dealer print hidden hand test case" << endl;
+    }
+    // Clears stringstream
+    dealerHand.str("");
+    dealerHand.clear();
+    streambuf* dealerCout2 = cout.rdbuf(dealerHand.rdbuf());
+
+    // Dealer print full hand test case
+    dealerTest.printHand(false);
+    cout.rdbuf(dealerCout2);
+    string printDealerTureHand = dealerHand.str();
+    if (printDealerTureHand != "Dealer's hand: Two of Clubs, Three of Clubs\n") {
+        passed = false;
+        cout << "FAILED Dealer print hand test case" << endl;
+    }
+
+    // Dealer turn test case
+    dealerTest.dealerTurn(deck1);
+    // Dealer must draw until hand is >= 17
+    if (dealerTest.getHandValue() < 17) {
+        passed = false;
+        cout << "FAILED Dealer turn test case" << endl;
+    }
+
+
+
+
 
 
     Blackjack blackjack(playerTest, dealerTest);
