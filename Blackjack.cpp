@@ -17,9 +17,10 @@ Blackjack::Blackjack(Player& player, Dealer& dealer)
     deck()
 {}
 
-    bool Blackjack::placeBet(float bet) {
-    if (player.getMoney() > bet+1 && bet > 1) {
-        player.setMoney(player.getMoney() - bet);
+    bool Blackjack::placeBet(double bet) {
+    if (bet >=1 && bet <= player.getMoney()) {
+        player.addMoney(-bet);
+        bets = bet;
         return true;
     } else {
         return false;
@@ -79,7 +80,7 @@ void Blackjack::compareHands() {
 
     if (player.getHandValue() > dealer.getHandValue()) {
         cout << player.getName() <<" wins!" << endl;
-        player.setMoney(player.getMoney() + (2*bets));
+        player.addMoney(2*bets);
         cout << "You won: $" << bets << ". Your money: $" << player.getMoney() << endl;
 
     } else if (player.getHandValue() < dealer.getHandValue()) {

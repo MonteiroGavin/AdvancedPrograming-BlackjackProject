@@ -29,7 +29,7 @@ public:
     * Effects: Checks if player has enough money for a bet and then subtracts bet from Player's money,
     * true if passes, false if not, will prompt until a valid bet is placed
     */
-    bool placeBet(float bet);
+    bool placeBet(double bet);
 
     /*
     * Initial deal and first steps of game
@@ -67,7 +67,8 @@ public:
     Deck deck;
     Player& player;
     Dealer& dealer;
-    float bets;
+    double bets;
+
 };
 
 #endif //M1OEP_GTMONTEI_BLACKJACK_H

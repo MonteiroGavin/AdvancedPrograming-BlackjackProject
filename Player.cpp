@@ -24,8 +24,8 @@ void Player::setHand(Card card1, Card card2) {
     hand.push_back(card2);
 }
 
-void Player::setMoney(float money) {
-    this->money += money;
+void Player::setMoney(double amount) {
+    money += amount;
 }
 
 void Player::clearHand() {
@@ -40,8 +40,12 @@ vector<Card> Player::getHand() const{
     return hand;
 }
 
-float Player::getMoney() const {
+double Player::getMoney() const {
     return money;
+}
+
+void Player::addMoney(double amount) {
+    money += amount;
 }
 
 void Player::addCard(Card card) {

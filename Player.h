@@ -43,7 +43,7 @@ class Player {
     * Modifies: set new money to player's money
     * Effects: Returns nothing
     */
-    void setMoney(float money);
+    void setMoney(double amount);
 
     /*
     * Clears player's hand
@@ -75,7 +75,15 @@ class Player {
     * Modifies: Nothing
     * Effects: Returns money
     */
-    float getMoney() const;
+    double getMoney() const;
+
+    /*
+    * Adds money to the players funds
+    * Requires: double ammount
+    * Modifies: money
+    * Effects: adds an amount to money, can be positive or negative
+    */
+    void addMoney(double amount);
 
     /*
     * Adds a card to player's hand
@@ -120,7 +128,7 @@ class Player {
     private:
     string playerName;
     vector<Card> hand;
-    float money;
+    double money;
 
 };
 
