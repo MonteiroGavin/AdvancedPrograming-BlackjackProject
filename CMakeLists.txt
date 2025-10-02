@@ -22,7 +22,6 @@ add_executable(M1OEP_gtmontei
 add_executable(test testing.cpp
         Deck.cpp
         Deck.h
-        main.cpp
         Player.h
         Player.cpp
         Dealer.cpp
