@@ -12,16 +12,25 @@ Deck::Deck() {
     // For every suit (clubs, spades, diamonds, hearts)
     for (int i = 0; i < 4; i++) {
         Suit suit = static_cast<Suit>(i);
-        // For every card rank, not starting at 0 because my rank enums start at 2
-        for (int j = 2; j < 14; j++) {
-            Rank rank = static_cast<Rank>(j);
-            deck.push_back(Card(suit, rank));
-        }
+
+        deck.push_back(Card(suit, Rank::Ace));
+        deck.push_back(Card(suit, Rank::Two));
+        deck.push_back(Card(suit, Rank::Three));
+        deck.push_back(Card(suit, Rank::Four));
+        deck.push_back(Card(suit, Rank::Five));
+        deck.push_back(Card(suit, Rank::Six));
+        deck.push_back(Card(suit, Rank::Seven));
+        deck.push_back(Card(suit, Rank::Eight));
+        deck.push_back(Card(suit, Rank::Nine));
+        deck.push_back(Card(suit, Rank::Ten));
+        deck.push_back(Card(suit, Rank::Jack));
+        deck.push_back(Card(suit, Rank::Queen));
+        deck.push_back(Card(suit, Rank::King));
     }
 }
 
 int Deck::size() {
-    return deck.size();
+    return static_cast<int>(deck.size());
 }
 
 void Deck::shuffle() {

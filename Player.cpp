@@ -81,8 +81,11 @@ bool Player::bust() const {
 void Player::printHand() const{
     cout << "Your hand: ";
     // Loops through all cards in hand
-    for (const Card& card : hand) {
-        cout << card << ", ";
+    for (int i = 0; i < hand.size(); i++) {
+        cout << hand[i];
+        if (i != hand.size() - 1) {
+            cout << ", ";
+        }
     }
     cout << endl << "Your hand total: " << getHandValue() << endl;
 }

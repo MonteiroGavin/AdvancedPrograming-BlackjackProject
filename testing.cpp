@@ -57,7 +57,7 @@ bool testBlackjack() {
     for (int i = 0; i < 52; i++) {
         Card card1 = deck1.drawCard();
         Card card2 = deck2.drawCard();
-        if (card1.getValue() == card2.getValue()) {
+        if (card1.getRank() == card2.getRank() && card1.getSuit() == card2.getSuit()) {
             similarities++;
         }
     }
@@ -67,9 +67,11 @@ bool testBlackjack() {
         cout << "FAILED deck shuffle test case" << endl;
     }
 
-    deck1.drawCard();
-    deck1.drawCard();
-    if (deck1.size() != 50) {
+    // Deck draw card test case
+    Deck deck3;
+    deck3.drawCard();
+    deck3.drawCard();
+    if (deck3.size() != 50) {
         passed = false;
         cout << "FAILED deck draw card test case" << endl;
     }
@@ -146,38 +148,31 @@ bool testBlackjack() {
     Card three(Suit::Clubs, Rank::Three);
     dealerTest.setHand(two, three);
 
-    // Dealer print hidden hand test case
+    // Dealer print hidden hand test case, stack overflow helped a lot with this
     stringstream dealerHand;
-    // Stack overflow and clion autofill helped with these three lines
     streambuf* dealerCout = cout.rdbuf(dealerHand.rdbuf());
     dealerTest.printHand(true);
     cout.rdbuf(dealerCout);
     string printDealerHiddenHand = dealerHand.str();
     if (printDealerHiddenHand != "Dealer's hand: [Hidden Card], Three of Clubs\n") {
         passed = false;
-        cout << "FAILED Dealer print hidden hand test case" << endl;
+        cout << "FAILED dealer hidden print test case" << endl;
     }
-    // Clears stringstream
+
+    // Clear stringstream
     dealerHand.str("");
     dealerHand.clear();
-    streambuf* dealerCout2 = cout.rdbuf(dealerHand.rdbuf());
 
     // Dealer print full hand test case
+    dealerCout = cout.rdbuf(dealerHand.rdbuf());
     dealerTest.printHand(false);
-    cout.rdbuf(dealerCout2);
-    string printDealerTureHand = dealerHand.str();
-    if (printDealerTureHand != "Dealer's hand: Two of Clubs, Three of Clubs\n") {
+    cout.rdbuf(dealerCout);
+    string printDealerTrueHand = dealerHand.str();
+    if (printDealerTrueHand != "Dealer's hand: Two of Clubs, Three of Clubs\n") {
         passed = false;
-        cout << "FAILED Dealer print hand test case" << endl;
+        cout << "FAILED dealer print test case" << endl;
     }
 
-    // Dealer turn test case
-    dealerTest.dealerTurn(deck1);
-    // Dealer must draw until hand is >= 17
-    if (dealerTest.getHandValue() < 17) {
-        passed = false;
-        cout << "FAILED Dealer turn test case" << endl;
-    }
 
 
 

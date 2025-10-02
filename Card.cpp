@@ -31,8 +31,17 @@ int Card::getValue() const{
         case Rank::Queen: return 10;
         case Rank::King: return 10;
         case Rank::Ace: return 11;
-        // Clion autofilled this next line, but it does every switch not listed above
-        default: return static_cast<int>(rank);
+        case Rank::Two: return 2;
+        case Rank::Three: return 3;
+        case Rank::Four: return 4;
+        case Rank::Five: return 5;
+        case Rank::Six: return 6;
+        case Rank::Seven: return 7;
+        case Rank::Eight: return 8;
+        case Rank::Nine: return 9;
+        case Rank::Ten: return 10;
+        default: return 0;
+
     }
 }
 
@@ -65,6 +74,7 @@ ostream& operator<<(ostream& os, const Card& card) {
         case Suit::Diamonds: suitStr = "Diamonds"; break;
         case Suit::Clubs: suitStr = "Clubs"; break;
         case Suit::Spades: suitStr = "Spades"; break;
+        default: suitStr = "Unknown"; break;
     }
     // Return rank then string
     return os << rankStr << " of " << suitStr;
