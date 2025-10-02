@@ -34,6 +34,13 @@ int main() {
 
         bool passedBet = false;
         double placedBet = 0;
+
+        if (player1.getMoney() <= 0) {
+            cout << "You don't have any more money. You lose\n" << endl;
+            endGame = true;
+            break;
+        }
+
         while (passedBet == false) {
             cout << "Your money: $" << player1.getMoney() << endl;
             double getBetFromUser();
@@ -56,12 +63,15 @@ int main() {
                 blackjack.playerHit();
                 if (player1.bust()) {
                     cout << "You went bust. You lose." << endl;
+                    cout << "You lost: $" << placedBet << ". Your money: $" <<player1.getMoney() << endl;
                     doneTurn = true;
                 }
             }
             // Blackjack check
             if (player1.getHandValue() == 21) {
                 cout << "You have blackjack!" << endl;
+                cout << "You won: $" << placedBet << ". Your money: $" << player1.getMoney() << endl;
+
                 // Will finish turn if has blackjack
                 doneTurn = true;
             }

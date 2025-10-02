@@ -52,10 +52,14 @@ void Blackjack::initialDeal() {
 
     if (dealer.hasBlackjack()) {
         cout << "the dealer has blackjack, you lose." << endl;
+        cout << "You lost: $" << bets << ". Your money: $" <<player.getMoney() << endl;
+
     }
 
     if (player.hasBlackjack()) {
         cout << "You have blackjack, you win!" << endl;
+        cout << "You won: $" << bets << ". Your money: $" << player.getMoney() << endl;
+
     }
 }
 
@@ -68,6 +72,9 @@ void Blackjack::playerHit() {
 void Blackjack::dealerTurn() {
     // Runs dealerTurn() but needed the same deck in blackjack class
     dealer.dealerTurn(deck);
+    if (dealer.bust()) {
+        cout << "You won: $" << bets << ". Your money: $" << player.getMoney() << endl;
+    }
 }
 
 void Blackjack::compareHands() {
@@ -85,10 +92,11 @@ void Blackjack::compareHands() {
 
     } else if (player.getHandValue() < dealer.getHandValue()) {
         cout << "Dealer wins!" << endl;
-        cout << "You lost: $" << bets << ". Your money: $" <<player.getMoney() << endl;
+        cout << "You lost: $" << bets << ". Your money: $" << player.getMoney() << endl;
     } else if (player.getHandValue() == dealer.getHandValue()) {
         cout << "Push, no one wins." << endl;
-        cout << "You lost: nothing. Your money: $" <<player.getMoney() << endl;
+        player.addMoney(bets);
+        cout << "You lost: nothing. Your money: $" << player.getMoney() << endl;
 
     }
 }
