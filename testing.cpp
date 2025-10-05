@@ -49,14 +49,17 @@ bool testBlackjack() {
 
     // All of this tests shuffle
     Deck deck2; // Second deck to compare
-    deck1.shuffle();
+
+    // Shuffle deck2 and keep deck1 unshuffled
     deck2.shuffle();
     // To keep track of identical located cards between the decks
     int similarities = 0;
     // Checks the value of each card
     for (int i = 0; i < 52; i++) {
         Card card1 = deck1.drawCard();
+
         Card card2 = deck2.drawCard();
+
         if (card1.getRank() == card2.getRank() && card1.getSuit() == card2.getSuit()) {
             similarities++;
         }
@@ -91,6 +94,20 @@ bool testBlackjack() {
         cout << "FAILED player set name test case" << endl;
     }
 
+    // Player set money test
+    playerTest.setMoney(40.00);
+    if (playerTest.getMoney() != 40.00) {
+        passed = false;
+        cout << "FAILED player set money test case" << endl;
+    }
+
+    // Player add money test case
+    playerTest.addMoney(20.00);
+    if (playerTest.getMoney() != 60.00) {
+        passed = false;
+        cout << "FAILED player add money test case" << endl;
+    }
+
     // Player set hand test case
     playerTest.setHand(deck1.drawCard(), deck1.drawCard() );
     if (playerTest.getHand().size() != 2) {
@@ -108,6 +125,7 @@ bool testBlackjack() {
     Card ace(Suit::Clubs, Rank::Ace);
     Card ten(Suit::Clubs, Rank::Ten);
     Card king(Suit::Clubs, Rank::King);
+    Card queen(Suit::Clubs, Rank::Queen);
     playerTest.setHand(ace, ten);
 
     // Player has blackjack test and another handvalue test
@@ -129,8 +147,7 @@ bool testBlackjack() {
     }
 
     // Player test for bust check and another add card test case
-    playerTest.clearHand();
-    playerTest.setHand(ace,ten);
+    playerTest.setHand(queen, ten);
     playerTest.addCard(king);
     if (!playerTest.bust()) {
         passed = false;
@@ -174,12 +191,70 @@ bool testBlackjack() {
         cout << "FAILED dealer print test case" << endl;
     }
 
+    // Dealer turn test case
+    deck1.shuffle();
+    stringstream dealerTurnOutput;
+    streambuf* dealerTurnCout = cout.rdbuf(dealerTurnOutput.rdbuf());
+    dealerTest.dealerTurn(deck1);
+    cout.rdbuf(dealerTurnCout);
+
+    string outputDealerTurn = dealerTurnOutput.str();
+    // Checks if dealer stood before getting to 17 which it must hit until reaching 17
+    if (dealerTest.getHandValue() < 17 && outputDealerTurn.find("Dealer stands") != string::npos) {
+        passed = false;
+        cout << "FAILED dealer print test case" << endl;
+    }
 
 
+    Player player1;
+    Dealer dealer1;
+    Blackjack blackjack(player1, dealer1);
 
+    //Blackjack constructor test
+    if (player1.getName() != "John" || dealer1.getName() != "Dealer") {
+        passed = false;
+        cout << "FAILED blackjack constructor test case" << endl;
 
+    }
 
-    Blackjack blackjack(playerTest, dealerTest);
+    if (blackjack.placeBet(0.50) || blackjack.placeBet(21.00)) {
+        passed = false;
+        cout << "FAILED blackjack place bet test case" << endl;
+    }
+
+    stringstream blackjackOutput;
+    streambuf* blackjackCout = cout.rdbuf(blackjackOutput.rdbuf());
+    blackjack.initialDeal();
+    cout.rdbuf(blackjackCout);
+    string outputBlackjack = blackjackOutput.str();
+
+    // Blackjack initial deal test case
+    if (outputBlackjack.find("Dealer's hand") == string::npos || outputBlackjack.find("Your hand") == string::npos) {
+        passed = false;
+        cout << "FAILED blackjack initial test case" << endl;
+    }
+
+    // Blackjack player hit test case
+    blackjack.playerHit();
+    if (player1.getHand().size() != 3) {
+        passed = false;
+        cout << "FAILED blackjack hit test case" << endl;
+    }
+
+    blackjack.dealerTurn();
+
+    stringstream compareHandsOutput;
+    streambuf* compareHandsCout = cout.rdbuf(compareHandsOutput.rdbuf());
+    blackjack.compareHands();
+    cout.rdbuf(compareHandsCout);
+    string outputCompareHands = compareHandsOutput.str();
+
+    // Blackjack compare hands test case
+    if (outputCompareHands.find("You won") == string::npos && outputCompareHands.find("You lost") == string::npos && outputCompareHands.find("Push") == string::npos) {
+        passed = false;
+        cout << "FAILED blackjack compare hands test case" << endl;
+    }
+
 
     return passed;
 }

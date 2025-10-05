@@ -25,7 +25,7 @@ void Player::setHand(Card card1, Card card2) {
 }
 
 void Player::setMoney(double amount) {
-    money += amount;
+    money = amount;
 }
 
 void Player::clearHand() {
