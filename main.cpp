@@ -49,7 +49,7 @@ int main() {
                 passedBet = true;
             } else {
                 passedBet = false;
-                cout << "Bet is higher than the amount of money you have." << endl;
+                cout << "Place a bet between 1 and " << player1.getMoney() << endl;
             }
         }
         blackjack.initialDeal();
