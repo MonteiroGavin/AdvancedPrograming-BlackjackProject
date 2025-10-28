@@ -1,8 +1,8 @@
-# CS 2300 Module 2 Open Ended Project Gavin Monteiro:
+# Advanced Programming Open Ended Project Gavin Monteiro:
 Blackjack: 
     My program runs the card game blackjack, with one player inputs. The player versus a dealer
-and who ever's hand is closest to 21 after drawing cards, without going over, wins. This program 
-uses many Module one concepts such as:
+and who ever's hand is closest to 21 after drawing cards, without going over, wins. Some
+concepts used:
 - Has-A class relationships:
   - Card and Deck. The deck class is composed of cards, therefore deck has a (or multiple) card(s).
   - Player classes Has-A hand. which although hand is not a class, it is made up of cards so it is still a Has-A relationship.
@@ -29,20 +29,3 @@ Finally, more than one player implementation would be interesting to explore as 
 https://stackoverflow.com/questions/46061713/scope-of-redirection-of-stdcout
 https://www.geeksforgeeks.org/cpp/io-redirection-c/
 # Grade
-
-I think I have earned 230 points
-- Main.cpp: 
-- Testing.cpp: 
-- Has-A relationships: I believe I have credit for the following relationships: 
-  - Deck has Card(s) which would be 20 points. 
-  - Dealer and Player both have hands which have cards(I do not know if since player and dealer are too similar because of the way they both 
-  use hand in the same way) which would be 40 points.
-  - Blackjack has a Player a Dealer a Deck and cards, since these  are four has-a 
-  relationships, they are 80 points. 
-  - This brings a total of 140 points (If dealer and player are counted as the same, then 120 points)
-- Is-A relationships: Dealer Is-A relationship with Player, this is the only use of Is-A relationship so it totals to 20 points
-- File I/O: 10 points, I do not know if each I/O that occurs in main counts for 10 points each but it is used for setting the 
-player name, placing bets, choosing to hit or stand, and to reveal who won a game.
-- Style and documentation: 0 points. I think there are comments and details where needed and are throughout my program.
-- Video: 0 points. I run through main multiple times and reach different ways to end the round, showing many parts of my program. I also run testing.
-- Lifespan of project: 0 points. I created the repository on Sep 23rd, well before the 7 day minimum. I have also had at least 3 days of significant work.

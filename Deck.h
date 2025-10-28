@@ -2,8 +2,8 @@
 // Created by Gavin  Monteiro on 9/9/25.
 //
 
-#ifndef M1OEP_GTMONTEI_DECK_H
-#define M1OEP_GTMONTEI_DECK_H
+#ifndef ADVANCEDPROGRAMMING_BLACKJACKPROJECT_DECK_H
+#define ADVANCEDPROGRAMMING_BLACKJACKPROJECT_DECK_H
 
 #include <iostream>
 #include <vector>
@@ -49,4 +49,4 @@ private:
     vector<Card> deck;
 };
 
-#endif //M1OEP_GTMONTEI_DECK_H
+#endif //ADVANCEDPROGRAMMING_BLACKJACKPROJECT_DECK_H

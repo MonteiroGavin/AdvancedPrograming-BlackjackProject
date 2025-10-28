@@ -2,8 +2,8 @@
 // Created by Gavin  Monteiro on 9/9/25.
 //
 
-#ifndef M1OEP_GTMONTEI_DEALER_H
-#define M1OEP_GTMONTEI_DEALER_H
+#ifndef ADVANCEDPROGRAMMING_BLACKJACKPROJECT_DEALER_H
+#define ADVANCEDPROGRAMMING_BLACKJACKPROJECT_DEALER_H
 
 #include <iostream>
 #include <vector>
@@ -44,4 +44,4 @@ private:
     bool hiddenCard;
 
 };
-#endif //M1OEP_GTMONTEI_DEALER_H
+#endif //ADVANCEDPROGRAMMING_BLACKJACKPROJECT_DEALER_H

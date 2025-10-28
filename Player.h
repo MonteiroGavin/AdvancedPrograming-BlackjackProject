@@ -2,8 +2,8 @@
 // Created by Gavin  Monteiro on 9/9/25.
 //
 
-#ifndef M1OEP_GTMONTEI_PLAYER_H
-#define M1OEP_GTMONTEI_PLAYER_H
+#ifndef ADVANCEDPROGRAMMING_BLACKJACKPROJECT_PLAYER_H
+#define ADVANCEDPROGRAMMING_BLACKJACKPROJECT_PLAYER_H
 
 #include <iostream>
 #include <vector>
@@ -132,4 +132,4 @@ class Player {
 
 };
 
-#endif //M1OEP_GTMONTEI_PLAYER_H
+#endif //ADVANCEDPROGRAMMING_BLACKJACKPROJECT_PLAYER_H

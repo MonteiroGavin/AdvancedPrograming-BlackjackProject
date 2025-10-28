@@ -2,8 +2,8 @@
 // Created by Gavin  Monteiro on 9/9/25.
 //
 
-#ifndef M1OEP_GTMONTEI_CARD_H
-#define M1OEP_GTMONTEI_CARD_H
+#ifndef ADVANCEDPROGRAMMING_BLACKJACKPROJECT_CARD_H
+#define ADVANCEDPROGRAMMING_BLACKJACKPROJECT_CARD_H
 
 #include <iostream>
 using namespace std;
@@ -71,4 +71,4 @@ private:
 
 // Overloaded operator for printing card
 ostream& operator<<(ostream& os, const Card& card);
-#endif //M1OEP_GTMONTEI_CARD_H
+#endif //ADVANCEDPROGRAMMING_BLACKJACKPROJECT_CARD_H
