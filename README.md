@@ -1,6 +1,8 @@
 # Advanced Programming Open Ended Project Gavin Monteiro:
 Blackjack: 
-    My program runs the card game blackjack, with one player inputs. The player versus a dealer
+    This is a program I made for my Advanced Programming class at The University of Vermont. 
+It is written in C++ and used concepts from the units we were learning in class such as class 
+relationships and user input/output. The program runs the card game blackjack, with one player inputs. The player versus a dealer
 and who ever's hand is closest to 21 after drawing cards, without going over, wins. Some
 concepts used:
 - Has-A class relationships:
